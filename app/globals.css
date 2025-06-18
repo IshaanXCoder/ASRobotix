@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --gradient-primary: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+  --gradient-secondary: linear-gradient(135deg, #f97316 0%, #eab308 100%);
+}
+
+.hero-gradient {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(239, 68, 68, 0.15) 0%,
+    rgba(249, 115, 22, 0.05) 30%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+.dotted-grid {
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.1;
+}
+
+.timer-progress {
+  stroke-dasharray: 283;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.border-hover {
+  transition: border-color 0.3s ease;
+}
+
+.border-hover:hover {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Reduced Neumorphism effects (50% of original) */
+.neumorphism {
+  background: linear-gradient(145deg, #151515, #0d0d0d);
+  box-shadow: 10px 10px 20px #080808, -10px -10px 20px #1c1c1c;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neumorphism:hover {
+  background: linear-gradient(145deg, #171717, #111111);
+  box-shadow: 12px 12px 25px #060606, -12px -12px 25px #1e1e1e, inset 0 0 10px rgba(239, 68, 68, 0.05);
+  transform: translateY(-1px);
+}
+
+.neumorphism-inset {
+  background: linear-gradient(145deg, #0d0d0d, #151515);
+  box-shadow: inset 5px 5px 10px #080808, inset -5px -5px 10px #1c1c1c;
+  border: 1px solid rgba(255, 255, 255, 0.01);
+}
+
+/* Video modal styles */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.video-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
