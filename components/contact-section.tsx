@@ -3,24 +3,11 @@
 import { Button } from "@/components/ui/button"
 import { ShineBorder } from "@/components/ui/shine-border"
 import { Mail, MessageSquare, Phone } from "lucide-react"
+import Link from "next/link"
 
 export function ContactSection() {
-  const handleEmailClick = () => {
-    window.location.href = "mailto:hello@asrobotix.com"
-  }
-
-  const handleChatClick = () => {
-    // You can replace this with your actual scheduling link
-    window.open("https://calendly.com/asrobotix", "_blank")
-  }
-
-  const handlePhoneClick = () => {
-    window.location.href = "tel:+91XXXXXXXXX"
-  }
-
   const handleStartConversation = () => {
-    window.location.href =
-      "mailto:hello@asrobotix.com?subject=Partnership Inquiry&body=Hi ASRobotix team, I'm interested in learning more about your technology and potential collaboration opportunities."
+    window.open("https://wa.me/919821657500", "_blank")
   }
 
   return (
@@ -35,35 +22,41 @@ export function ContactSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <ShineBorder className="text-center" borderClassName="border border-white/10 rounded-xl">
-            <div className="p-6 card-hover border-hover cursor-pointer" onClick={handleEmailClick}>
-              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-red-500/20 flex items-center justify-center">
-                <Mail className="h-6 w-6 text-red-500" />
+          <Link href="mailto:Info@asrobotix.com">
+            <ShineBorder className="text-center" borderClassName="border border-white/10 rounded-xl">
+              <div className="p-6 card-hover border-hover cursor-pointer">
+                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-red-500/20 flex items-center justify-center">
+                  <Mail className="h-6 w-6 text-red-500" />
+                </div>
+                <h3 className="font-semibold mb-2">Email Us</h3>
+                <p className="text-gray-400 text-sm">Info@asrobotix.com</p>
               </div>
-              <h3 className="font-semibold mb-2">Email Us</h3>
-              <p className="text-gray-400 text-sm">hello@asrobotix.com</p>
-            </div>
-          </ShineBorder>
+            </ShineBorder>
+          </Link>
 
-          <ShineBorder className="text-center" borderClassName="border border-white/10 rounded-xl">
-            <div className="p-6 card-hover border-hover cursor-pointer" onClick={handleChatClick}>
-              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-orange-500/20 flex items-center justify-center">
-                <MessageSquare className="h-6 w-6 text-orange-500" />
+          <Link href="https://wa.me/919821657500" target="_blank" rel="noopener noreferrer">
+            <ShineBorder className="text-center" borderClassName="border border-white/10 rounded-xl">
+              <div className="p-6 card-hover border-hover cursor-pointer">
+                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-orange-500/20 flex items-center justify-center">
+                  <MessageSquare className="h-6 w-6 text-orange-500" />
+                </div>
+                <h3 className="font-semibold mb-2">Let's Chat</h3>
+                <p className="text-gray-400 text-sm">Chat on WhatsApp</p>
               </div>
-              <h3 className="font-semibold mb-2">Let's Chat</h3>
-              <p className="text-gray-400 text-sm">Schedule a meeting</p>
-            </div>
-          </ShineBorder>
+            </ShineBorder>
+          </Link>
 
-          <ShineBorder className="text-center" borderClassName="border border-white/10 rounded-xl">
-            <div className="p-6 card-hover border-hover cursor-pointer" onClick={handlePhoneClick}>
-              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-yellow-500/20 flex items-center justify-center">
-                <Phone className="h-6 w-6 text-yellow-500" />
+          <Link href="tel:+919821657500">
+            <ShineBorder className="text-center" borderClassName="border border-white/10 rounded-xl">
+              <div className="p-6 card-hover border-hover cursor-pointer">
+                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                  <Phone className="h-6 w-6 text-yellow-500" />
+                </div>
+                <h3 className="font-semibold mb-2">Call Us</h3>
+                <p className="text-gray-400 text-sm">+91 982 165 7500</p>
               </div>
-              <h3 className="font-semibold mb-2">Call Us</h3>
-              <p className="text-gray-400 text-sm">+91 XXX XXX XXXX</p>
-            </div>
-          </ShineBorder>
+            </ShineBorder>
+          </Link>
         </div>
 
         <ShineBorder className="text-center" borderClassName="border border-white/10 rounded-xl">
@@ -73,12 +66,6 @@ export function ContactSection() {
               Whether you're interested in partnerships, investments, or just want to learn more about our technology,
               we're excited to connect with fellow innovators.
             </p>
-            <Button
-              className="bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90"
-              onClick={handleStartConversation}
-            >
-              Start a Conversation
-            </Button>
           </div>
         </ShineBorder>
       </div>

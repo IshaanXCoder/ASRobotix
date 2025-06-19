@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
   return (
@@ -26,34 +26,42 @@ export function Footer() {
               big dream, committed to changing how we build, explore, and heal, one microbot at a time.
             </p>
             <div className="flex gap-4">
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full border-white/10 bg-white/5 hover:bg-white/10"
-              >
-                <Twitter className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full border-white/10 bg-white/5 hover:bg-white/10"
-              >
-                <Github className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full border-white/10 bg-white/5 hover:bg-white/10"
-              >
-                <Linkedin className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full border-white/10 bg-white/5 hover:bg-white/10"
-              >
-                <Mail className="h-4 w-4" />
-              </Button>
+              <Link href="https://www.linkedin.com/company/asrobotix/" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full border-white/10 bg-white/5 hover:bg-white/10"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="https://www.instagram.com/asrobotix?igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full border-white/10 bg-white/5 hover:bg-white/10"
+                >
+                  <Instagram className="h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="https://www.facebook.com/asrobotixfb/?_rdr" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full border-white/10 bg-white/5 hover:bg-white/10"
+                >
+                  <Facebook className="h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="mailto:Info@asrobotix.com">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full border-white/10 bg-white/5 hover:bg-white/10"
+                >
+                  <Mail className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -61,23 +69,18 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Technology</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#technology" className="text-gray-400 hover:text-white">
+                <Link href="/minirobots" className="text-gray-400 hover:text-white">
                   Microbots
+                </Link>
+              </li>
+              <li>
+                <Link href="/mechlid" className="text-gray-400 hover:text-white">
+                  Mechlid
                 </Link>
               </li>
               <li>
                 <Link href="#projects" className="text-gray-400 hover:text-white">
                   Projects
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white">
-                  Research
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white">
-                  Patents
                 </Link>
               </li>
             </ul>
@@ -87,7 +90,7 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#team" className="text-gray-400 hover:text-white">
+                <Link href="/about" className="text-gray-400 hover:text-white">
                   Team
                 </Link>
               </li>
@@ -97,18 +100,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white">
-                  Careers
-                </Link>
-              </li>
-              <li>
                 <Link href="#contact" className="text-gray-400 hover:text-white">
                   Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white">
-                  Privacy Policy
                 </Link>
               </li>
             </ul>

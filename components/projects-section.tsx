@@ -82,7 +82,7 @@ export function ProjectsSection() {
                     </div>
                   </div>
 
-                  <Link href={project.link}>
+                  <Link href={project.link} className="block">
                     <Button className="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90 gap-2">
                       Learn More
                       <ArrowRight className="h-4 w-4" />

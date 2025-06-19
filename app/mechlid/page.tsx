@@ -8,8 +8,12 @@ import { Award, ArrowLeft, CheckCircle, Zap, BarChart3, Recycle } from "lucide-r
 import { InteractiveGrid } from "@/components/ui/interactive-grid"
 import Image from "next/image"
 import Link from "next/link"
+import { VideoModal } from "@/components/video-modal"
+import { useState } from "react"
 
 export default function MechLidPage() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
+
   const features = [
     {
       icon: <Zap className="h-6 w-6 text-red-500" />,
@@ -38,13 +42,17 @@ export default function MechLidPage() {
   ]
 
   const handleRequestDemo = () => {
-    window.location.href =
-      "mailto:hello@asrobotix.com?subject=MechLid Demo Request&body=Hi, I would like to request a demo of the MechLid smart waste management system."
+    setIsVideoModalOpen(true)
   }
 
   const handleDownloadBrochure = () => {
-    // In a real app, this would download a PDF
-    alert("Brochure download will be available soon. Please contact us for detailed information.")
+    // Create a link element and trigger download
+    const link = document.createElement('a')
+    link.href = '/brochure_mechlid.pdf'
+    link.download = 'MechLid_Brochure.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   const handleContactSales = () => {
@@ -95,7 +103,7 @@ export default function MechLidPage() {
                       className="bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90"
                       onClick={handleRequestDemo}
                     >
-                      Request Demo
+                      Watch Demo
                     </Button>
                     <Button
                       variant="outline"
@@ -267,6 +275,11 @@ export default function MechLidPage() {
           <Footer />
         </div>
       </div>
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoUrl="/promo.mp4"
+      />
     </main>
   )
 }
