@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -13,6 +14,7 @@ export function Header() {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" })
     }
+    setIsMenuOpen(false)
   }
 
   return (
@@ -20,33 +22,24 @@ export function Header() {
       <div className="flex items-center justify-between px-4 sm:px-6 py-4 backdrop-blur-xl bg-black/50">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="3" stroke="white" strokeWidth="2" />
-                <circle cx="12" cy="12" r="8" stroke="white" strokeWidth="1" opacity="0.5" />
-                <circle cx="6" cy="6" r="2" fill="white" opacity="0.7" />
-                <circle cx="18" cy="6" r="2" fill="white" opacity="0.7" />
-                <circle cx="6" cy="18" r="2" fill="white" opacity="0.7" />
-                <circle cx="18" cy="18" r="2" fill="white" opacity="0.7" />
-              </svg>
-            </div>
+            <Image src="/logo.png" alt="ASRobotix Logo" width={40} height={40} className="rounded-full" />
             <span className="font-medium text-white">ASRobotix</span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/#technology" className="text-sm text-gray-300 hover:text-white transition-colors">
-            Technology
+          <Link href="/" className="text-sm text-gray-300 hover:text-white transition-colors">
+            Home
           </Link>
-          <Link href="/#projects" className="text-sm text-gray-300 hover:text-white transition-colors">
-            Projects
+          <Link href="/mechlid" className="text-sm text-gray-300 hover:text-white transition-colors">
+            MechLid
+          </Link>
+          <Link href="/minirobots" className="text-sm text-gray-300 hover:text-white transition-colors">
+            Mini Robots
           </Link>
           <Link href="/about" className="text-sm text-gray-300 hover:text-white transition-colors">
             About Us
-          </Link>
-          <Link href="/#vision" className="text-sm text-gray-300 hover:text-white transition-colors">
-            Vision
           </Link>
           <Link href="/#contact" className="text-sm text-gray-300 hover:text-white transition-colors">
             Contact
@@ -54,13 +47,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button
-            variant="secondary"
-            className="hidden sm:flex bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90"
-            onClick={handleContactClick}
-          >
-            Get in Touch
-          </Button>
+          <Link href="/#contact">
+            <Button
+              variant="secondary"
+              className="hidden sm:flex bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90"
+            >
+              Get in Touch
+            </Button>
+          </Link>
 
           {/* Mobile menu button */}
           <Button
@@ -79,18 +73,25 @@ export function Header() {
         <div className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/10">
           <nav className="flex flex-col px-6 py-4 space-y-4">
             <Link
-              href="/#technology"
+              href="/"
               className="text-gray-300 hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Technology
+              Home
             </Link>
             <Link
-              href="/#projects"
+              href="/mechlid"
               className="text-gray-300 hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Projects
+              MechLid
+            </Link>
+            <Link
+              href="/minirobots"
+              className="text-gray-300 hover:text-white transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Mini Robots
             </Link>
             <Link
               href="/about"
@@ -100,28 +101,17 @@ export function Header() {
               About Us
             </Link>
             <Link
-              href="/#vision"
-              className="text-gray-300 hover:text-white transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Vision
-            </Link>
-            <Link
               href="/#contact"
               className="text-gray-300 hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
-            <Button
-              className="bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90 mt-4"
-              onClick={() => {
-                setIsMenuOpen(false)
-                handleContactClick()
-              }}
-            >
-              Get in Touch
-            </Button>
+            <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>
+              <Button className="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90">
+                Get in Touch
+              </Button>
+            </Link>
           </nav>
         </div>
       )}

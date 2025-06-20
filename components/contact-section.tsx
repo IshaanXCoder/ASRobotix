@@ -64,6 +64,7 @@ export function ContactSection() {
             <h3 className="text-xl font-semibold mb-4">Ready to Innovate Together?</h3>
             <p className="text-gray-400 mb-6">
               Whether you're interested in partnerships, investments, or just want to learn more about our technology,
+              
               we're excited to connect with fellow innovators.
             </p>
           </div>

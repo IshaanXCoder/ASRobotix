@@ -1,17 +1,22 @@
+"use client"
+
 import { ShineBorder } from "@/components/ui/shine-border"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Award } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export function ProjectsSection() {
+  const router = useRouter()
+
   const projects = [
     {
       title: "MechLid",
       subtitle: "Smart Waste Management System",
       description:
         "An automatic smart lid aiding in efficient waste disposal and collection with retrofittable technology.",
-      status: "Patent Applied",
+      status: "Patent Published",
       patentNumber: "202311068504",
       image: "/placeholder.svg?height=300&width=400",
       color: "from-red-500 to-orange-600",
@@ -29,6 +34,10 @@ export function ProjectsSection() {
     },
   ]
 
+  const handleProjectClick = (link: string) => {
+    router.push(link)
+  }
+
   return (
     <section id="projects" className="py-16 px-4 sm:px-6 bg-black/50">
       <div className="max-w-6xl mx-auto">
@@ -40,7 +49,7 @@ export function ProjectsSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project) => (
-            <ShineBorder key={project.title} className="h-full" borderClassName="border border-white/10 rounded-xl">
+            <ShineBorder key={project.title} className="h-full relative" borderClassName="border border-white/10 rounded-xl">
               <div className="p-6 sm:p-8 h-full card-hover border-hover">
                 <div className="space-y-6">
                   <div className="relative">
@@ -72,7 +81,7 @@ export function ProjectsSection() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div
-                          className={`w-2 h-2 rounded-full ${project.status === "Patent Applied" ? "bg-orange-500" : "bg-red-500"}`}
+                          className={`w-2 h-2 rounded-full ${project.status === "Patent Published" ? "bg-orange-500" : "bg-red-500"}`}
                         />
                         <span className="text-sm font-medium">{project.status}</span>
                       </div>
@@ -82,12 +91,13 @@ export function ProjectsSection() {
                     </div>
                   </div>
 
-                  <Link href={project.link} className="block">
-                    <Button className="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90 gap-2">
-                      Learn More
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </Link>
+                  <button
+                    onClick={() => handleProjectClick(project.link)}
+                    className="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90 gap-2 py-2 px-4 rounded-md flex items-center justify-center relative z-10"
+                  >
+                    Learn More
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </button>
                 </div>
               </div>
             </ShineBorder>

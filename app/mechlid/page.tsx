@@ -56,11 +56,11 @@ export default function MechLidPage() {
   }
 
   const handleContactSales = () => {
-    window.location.href = "mailto:sales@asrobotix.com?subject=MechLid Sales Inquiry"
+    window.location.href = "mailto:Info@asrobotix.com?subject=MechLid Sales Inquiry"
   }
 
   const handleScheduleDemo = () => {
-    window.open("https://calendly.com/asrobotix/mechlid-demo", "_blank")
+    window.open("https://wa.me/919821657500", "_blank")
   }
 
   return (
@@ -87,7 +87,7 @@ export default function MechLidPage() {
                     <h1 className="text-4xl sm:text-5xl font-bold">MechLid</h1>
                     <div className="flex items-center gap-1 px-3 py-1 bg-yellow-500/20 rounded-full">
                       <Award className="h-4 w-4 text-yellow-500" />
-                      <span className="text-sm text-yellow-500 font-medium">Patent Applied</span>
+                      <span className="text-sm text-yellow-500 font-medium">Patent Published</span>
                     </div>
                   </div>
                   <p className="text-xl font-medium bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 mb-6">
@@ -105,13 +105,14 @@ export default function MechLidPage() {
                     >
                       Watch Demo
                     </Button>
-                    <Button
-                      variant="outline"
-                      className="border-white/10 bg-white/5 hover:bg-white/10"
-                      onClick={handleDownloadBrochure}
-                    >
-                      Download Brochure
-                    </Button>
+                    <a href="/brochure_mechlid.pdf" download="MechLid_Brochure.pdf">
+                      <Button
+                        variant="outline"
+                        className="w-full border-white/10 bg-white/5 hover:bg-white/10"
+                      >
+                        Download Brochure
+                      </Button>
+                    </a>
                   </div>
                 </div>
 
@@ -255,19 +256,21 @@ export default function MechLidPage() {
                 your organization.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90"
-                  onClick={handleContactSales}
-                >
-                  Contact Sales
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-white/10 bg-white/5 hover:bg-white/10"
-                  onClick={handleScheduleDemo}
-                >
-                  Schedule Demo
-                </Button>
+                <Link href="mailto:Info@asrobotix.com?subject=MechLid Sales Inquiry">
+                  <Button
+                    className="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90"
+                  >
+                    Contact Sales
+                  </Button>
+                </Link>
+                <Link href="https://wa.me/919821657500" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    className="w-full border-white/10 bg-white/5 hover:bg-white/10"
+                  >
+                    Schedule Demo
+                  </Button>
+                </Link>
               </div>
             </div>
           </section>

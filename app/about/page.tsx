@@ -7,18 +7,84 @@ import Link from "next/link"
 
 export default function AboutPage() {
   const institutions = [
-    { name: "IIT", logo: "/placeholder.svg?height=60&width=120", description: "Indian Institute of Technology" },
-    {
-      name: "BITS",
-      logo: "/placeholder.svg?height=60&width=120",
-      description: "Birla Institute of Technology and Science",
+    { 
+      name: "IIT Delhi", 
+      logo: "/uni-logo/indian-institute-of-technology-delhi-logo-freelogovectors.net_.png", 
+      description: "Indian Institute of Technology Delhi" 
     },
     {
-      name: "UC Berkeley",
-      logo: "/placeholder.svg?height=60&width=120",
-      description: "University of California, Berkeley",
+      name: "IIT Roorkee",
+      logo: "/uni-logo/iit-roorkee.png",
+      description: "Indian Institute of Technology Roorkee",
     },
-    { name: "DTU", logo: "/placeholder.svg?height=60&width=120", description: "Delhi Technological University" },
+    { 
+      name: "IIT Guwahati", 
+      logo: "/uni-logo/IIT-Guwahati_1.png", 
+      description: "Indian Institute of Technology Guwahati" 
+    },
+    { 
+      name: "IIT Madras", 
+      logo: "/uni-logo/IITM_logo_center.png", 
+      description: "Indian Institute of Technology Madras" 
+    },
+    { 
+      name: "DTU", 
+      logo: "/uni-logo/delhi-technological-university-logo.png", 
+      description: "Delhi Technological University" 
+    },
+    {
+      name: "BITS Pilani",
+      logo: "/uni-logo/bits pilani.png",
+      description: "Birla Institute of Technology and Science, Pilani",
+    },
+    { 
+      name: "UC Davis", 
+      logo: "/uni-logo/ucd.png", 
+      description: "University of California, Davis" 
+    },
+  ]
+
+  const teamMembers = [
+    {
+      name: "Arnav Sharma",
+      role: "Founder & CEO",
+      image: "/team-members/Arnav Sharma.jpg"
+    },
+    {
+      name: "Saksham Kamboj",
+      role: "Co-Founder & CTO",
+      image: "/team-members/Saksham Kamboj.jpg"
+    },
+    {
+      name: "Ishaan Kesarwani",
+      role: "Software Engineer",
+      image: "/team-members/Ishaan kesarwani.png"
+    },
+    {
+      name: "Taanish Gupta",
+      role: "Hardware Engineer",
+      image: "/team-members/Taanish Gupta.jpg"
+    },
+    {
+      name: "Ridhi Sehgal",
+      role: "UI/UX Designer",
+      image: "/team-members/Ridhi Sehgal.jpg"
+    },
+    {
+      name: "Tanishka Gupta",
+      role: "Research Engineer",
+      image: "/team-members/Tanishka Gupta.png"
+    },
+    {
+      name: "Kartikay Lakhotia",
+      role: "Robotics Engineer",
+      image: "/team-members/Kartikay Lakhotia.png"
+    },
+    {
+      name: "Manit Mehta",
+      role: "Software Developer",
+      image: "/team-members/Manit Mehta.jpg"
+    }
   ]
 
   const values = [
@@ -85,58 +151,40 @@ export default function AboutPage() {
             A lean team that consists of the brightest minds of India hailing from premier institutions worldwide.
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div className="neumorphism rounded-xl p-6 sm:p-8">
-              <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
-                  <Image
-                    src="/placeholder.svg?height=120&width=120"
-                    alt="Team Photo"
-                    width={120}
-                    height={120}
-                    className="rounded-full"
-                  />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {teamMembers.map((member) => (
+              <div key={member.name} className="neumorphism rounded-xl p-6">
+                <div className="text-center">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-red-500 to-orange-500 p-1">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={128}
+                      height={128}
+                      className="rounded-full w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-1">{member.name}</h3>
+                  <p className="text-gray-400 text-sm">{member.role}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Robotics Enthusiasts</h3>
-                <p className="text-gray-400">
-                  A passionate group of engineers, researchers, and innovators united by a shared vision of transforming
-                  robotics through collaborative intelligence.
-                </p>
               </div>
-            </div>
-
-            <div className="neumorphism rounded-xl p-6 sm:p-8">
-              <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center">
-                  <Image
-                    src="/placeholder.svg?height=120&width=120"
-                    alt="Innovation Lab"
-                    width={120}
-                    height={120}
-                    className="rounded-full"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Innovation Driven</h3>
-                <p className="text-gray-400">
-                  Our diverse backgrounds in mechanical engineering, computer science, and AI research create the
-                  perfect foundation for breakthrough innovations.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
 
           <div className="text-center">
-            <h3 className="text-xl font-semibold mb-8">Alumni From Premier Institutions</h3>
+            <h3 className="text-xl font-semibold mb-8">Members from Top Institutes</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {institutions.map((institution) => (
                 <div key={institution.name} className="neumorphism rounded-xl p-4 text-center card-hover">
-                  <Image
-                    src={institution.logo || "/placeholder.svg"}
-                    alt={institution.name}
-                    width={120}
-                    height={60}
-                    className="h-12 w-auto mx-auto mb-3"
-                  />
+                  <div className="h-20 flex items-center justify-center mb-3">
+                    <Image
+                      src={institution.logo}
+                      alt={institution.name}
+                      width={138}
+                      height={69}
+                      className="h-14 w-auto object-contain"
+                    />
+                  </div>
                   <h4 className="font-semibold text-sm text-white">{institution.name}</h4>
                   <p className="text-xs text-gray-400 mt-1">{institution.description}</p>
                 </div>
@@ -163,29 +211,6 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Vision Statement */}
-      <section className="py-16 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <ShineBorder borderClassName="border border-red-500/30 rounded-xl">
-            <div className="p-8">
-              <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
-                Looking Ahead
-              </h2>
-              <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-                We envision swarms of microbots supporting defense by scouting autonomously and aiding construction by
-                assembling structures in hard-to-reach places. Our vision includes applications in disaster response for
-                rapid deployment and infrastructure projects that require adaptable, self-assembling systems.
-              </p>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                We plan to scale this technology to enable larger, more complex formations and develop advanced
-                coordination strategies. We aim to push the boundaries of what small, intelligent machines can achieve
-                together.
-              </p>
-            </div>
-          </ShineBorder>
         </div>
       </section>
 

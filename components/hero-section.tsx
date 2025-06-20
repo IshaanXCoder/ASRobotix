@@ -16,6 +16,13 @@ export function HeroSection() {
     setIsVideoModalOpen(true)
   }
 
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects")
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <>
       <section className="relative min-h-screen pt-24 sm:pt-32 pb-16 overflow-hidden bg-black hero-gradient">
@@ -24,7 +31,7 @@ export function HeroSection() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-              Tiny Robots That
+              We're Robots That
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
                 Think & Collaborate
@@ -44,12 +51,13 @@ export function HeroSection() {
                 <Play className="w-4 h-4" />
                 Watch Demo
               </Button>
-              <Link href="#projects">
-                <Button className="bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90 gap-2 w-full sm:w-auto">
-                  Explore Projects
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
+              <Button 
+                className="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90 gap-2"
+                onClick={scrollToProjects}
+              >
+                Explore Projects
+                <ArrowRight className="w-4 h-4" />
+              </Button>
             </div>
           </div>
 
